@@ -81,6 +81,10 @@ int _printf(const char *format, ...)
 		{"d", print_int},
 		{"i", print_int},
 		{"b", convert_bin},
+		{"u", unsigned_int},
+		{"o", u_octal},
+		{"x", printHex_l},
+		{"X", printHex_u},
 		{NULL, NULL}
 	};
 

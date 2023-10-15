@@ -27,3 +27,18 @@ int _strlen(char *s)
 	else
 		return (0);
 }
+
+/**
+ * _puts - prints a string to stdout.
+ * @str: pointer to the string to print.
+ *
+ * Return: void.
+ */
+
+void _puts(char *str)
+{
+	if (*str == '\0')
+		return;
+	_putchar(*str);
+	_puts(str + 1);
+}
