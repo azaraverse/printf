@@ -103,3 +103,29 @@ int convert_bin(va_list bin)
 	free(array);
 	return (count);
 }
+
+/**
+ * unsigned_int - a function that prints an unsigned int to stdout.
+ * @u_value: list of unsigned int arguments to iterate.
+ *
+ * Return: an unsigned int.
+ */
+
+int unsigned_int(va_list u_value)
+{
+	unsigned int n;
+	int x;
+	int len = 0;
+
+	n = va_arg(u_value, unsigned int);
+	x = 1;
+	while (n / x > 9)
+		x = x * 10;
+	while (x != 0)
+	{
+		len += _putchar(n / x + '0');
+		n %= x;
+		x /= 10;
+	}
+	return (len);
+}
