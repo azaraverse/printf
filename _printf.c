@@ -4,13 +4,13 @@
  * printFormatted - a function that prints formatted text according to format
  * specified.
  * @format: string containing text and format specifiers.
- * @print_array: array of format specifiers and associated functions.
+ * @specifier_array: array of format specifiers and associated functions.
  * @args: variable argument list to handle format specifiers.
  *
  * Return: number of characters printed.
  */
 
-int printFormatted(const char *format, fmat_t *print_array, va_list args)
+int printFormatted(const char *format, fmat_t *specifier_array, va_list args)
 {
 	char a, percent = '%';
 	int b, c, count = 0;
@@ -24,11 +24,11 @@ int printFormatted(const char *format, fmat_t *print_array, va_list args)
 			c = 0;
 			b++;
 			a = format[b];
-			while (print_array[c].type != NULL &&
-			       a != *(print_array[c].type))
+			while (specifier_array[c].class != NULL &&
+			       a != *(specifier_array[c].class))
 				c++;
-			if (print_array[c].type != NULL)
-				count += print_array[c].f(args); /*
+			if (specifier_array[c].class != NULL)
+				count += specifier_array[c].f(args); /*
 								  * call the
 								  * appropriate
 								  * print
@@ -78,6 +78,8 @@ int _printf(const char *format, ...)
 	fmat_t ops[] = {
 		{"c", print_char},
 		{"s", print_str},
+		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 

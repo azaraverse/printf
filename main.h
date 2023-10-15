@@ -13,7 +13,7 @@
 
 typedef struct fmat
 {
-	char *type;
+	char *class;
 	int (*f)();
 } fmat_t;
 
@@ -22,5 +22,6 @@ int _strlen(char *s);
 int print_char(va_list ch);
 int print_str(va_list str);
 int _printf(const char *format, ...);
+int print_int(va_list integer);
 
 #endif /* MAIN_H */

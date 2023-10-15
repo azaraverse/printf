@@ -34,3 +34,34 @@ int print_str(va_list str)
 
 	return (len);
 }
+
+/**
+ * print_int - function that prints an int.
+ * @integer: list of int arguments to iterate.
+ *
+ * Return: int count.
+ */
+
+int print_int(va_list integer)
+{
+	int x, y = 1, len = 0;
+	unsigned int n;
+
+	x = va_arg(integer, int);
+	if (x < 0)
+	{
+		len += _putchar('-');
+		n = x * -1;
+	}
+	else
+		n = x;
+	while (n / y > 9)
+		y = y * 10;
+	while (y != 0)
+	{
+		len += _putchar(n / y + '0');
+		n %= y;
+		y /= 10;
+	}
+	return (len);
+}
