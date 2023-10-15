@@ -65,3 +65,41 @@ int print_int(va_list integer)
 	}
 	return (len);
 }
+
+/**
+ * convert_bin - converts an unsigned int argument to binary.
+ * @bin: list of unsigned int arguments to iterate.
+ *
+ * Return: binary conversion.
+ */
+
+int convert_bin(va_list bin)
+{
+	int i, count = 0;
+	int *array;
+	unsigned int n = va_arg(bin, unsigned int);
+	unsigned int temp = n;
+
+	while (temp / 2 != 0)
+	{
+		temp = temp / 2;
+		count++;
+	}
+	count++;
+
+	array = malloc(sizeof(int) * count);
+	if (array == NULL)
+	{
+		free(array);
+		return (0);
+	}
+	for (i = 0; i < count; i++)
+	{
+		array[i] = n % 2;
+		n = n / 2;
+	}
+	for (i = count - 1; i >= 0; i--)
+		_putchar(array[i] + '0');
+	free(array);
+	return (count);
+}

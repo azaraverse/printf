@@ -23,5 +23,6 @@ int print_char(va_list ch);
 int print_str(va_list str);
 int _printf(const char *format, ...);
 int print_int(va_list integer);
+int convert_bin(va_list bin);
 
 #endif /* MAIN_H */

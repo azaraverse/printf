@@ -80,6 +80,7 @@ int _printf(const char *format, ...)
 		{"s", print_str},
 		{"d", print_int},
 		{"i", print_int},
+		{"b", convert_bin},
 		{NULL, NULL}
 	};
 
