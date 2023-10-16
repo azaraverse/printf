@@ -182,7 +182,7 @@ int printPtr(va_list ptr)
 	unsigned long base = 16;
 	unsigned long digitValue;
 	int numDigits = 0;
-	int i, digits = 0;
+	int digits = 0;
 
 	if (address == 0)
 	{
@@ -199,9 +199,6 @@ int printPtr(va_list ptr)
 		digits++;
 		temp /= base;
 	}
-	/* minimum of 8 digits padded with 0s */
-	for (i = 0; i < 8 - digits; i++)
-		numDigits += _putchar('0');
 	/* print each digit of the address */
 	while (digits > 0)
 	{
