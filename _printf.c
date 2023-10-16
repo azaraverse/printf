@@ -81,6 +81,7 @@ int _printf(const char *format, ...)
 		{"o", u_octal},
 		{"x", printHex_l},
 		{"X", printHex_u},
+		{"S", printStr},
 		{NULL, NULL}
 	};
 

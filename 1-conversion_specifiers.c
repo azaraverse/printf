@@ -130,3 +130,40 @@ int printHex_u(va_list hex_value)
 	free(buffer);
 	return (numDigits);
 }
+
+/**
+ * printStr - a function that handles the 'S' format specifier.
+ * @s: list of string arguments to iterate.
+ *
+ * Return: number of chars to be printed.
+ */
+
+int printStr(va_list string)
+{
+	char hex[5], *s = va_arg(string, char *);
+	int i, numDigits = 0;
+
+	if (s == NULL)
+		s = "(null)";
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] < 32 || s[i] >= 127)
+		{
+			/* this handles the non-printable char */
+			hex[0] = '\\';
+			hex[1] = 'x';
+			hex[2] = "0123456789ABCDEF"[s[i] / 16];
+			hex[3] = "0123456789ABCDEF"[s[i] % 16];
+			hex[4] = '\0';
+			write(1, hex, 4);
+			numDigits += 4;
+		}
+		else
+		{
+			write(1, &s[i], 1);
+			numDigits++;
+		}
+	}
+	return (numDigits);
+}

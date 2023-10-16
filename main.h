@@ -30,5 +30,6 @@ int u_octal(va_list ui);
 void _puts(char *str);
 int printHex_l(va_list hex_value);
 int printHex_u(va_list hex_value);
+int printStr(va_list string);
 
 #endif /* MAIN_H */
