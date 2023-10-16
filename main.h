@@ -31,5 +31,7 @@ void _puts(char *str);
 int printHex_l(va_list hex_value);
 int printHex_u(va_list hex_value);
 int printStr(va_list string);
+int printHex(int n);
+int printPtr(va_list ptr);
 
 #endif /* MAIN_H */

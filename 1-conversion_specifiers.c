@@ -167,3 +167,47 @@ int printStr(va_list string)
 	}
 	return (numDigits);
 }
+
+/**
+ * printPtr - a function that prints a memory address in hexadecimal format.
+ * @ptr: pointer to the memory address to be printed.
+ *
+ * Return: the number of characters printed.
+ */
+
+int printPtr(va_list ptr)
+{
+	unsigned long address = (unsigned long)va_arg(ptr, void *);
+	unsigned long temp = address;
+	unsigned long base = 16;
+	unsigned long digitValue;
+	int numDigits = 0;
+	int i, digits = 0;
+
+	if (address == 0)
+	{
+	        _puts("(nil)");
+		_putchar('\0');
+		numDigits++;
+		return (numDigits);
+	}
+	numDigits += _putchar('0');
+	numDigits += _putchar('x');
+	/* calc the number of digits in the address */
+	while (temp != 0)
+	{
+		digits++;
+		temp /= base;
+	}
+	/* minimum of 8 digits padded with 0s */
+	for (i = 0; i < 8 - digits; i++)
+		numDigits += _putchar('0');
+	/* print each digit of the address */
+	while (digits > 0)
+	{
+		digitValue = (address >> (4 * (digits - 1))) & 0xF;
+		numDigits += printHex(digitValue);
+		digits--;
+	}
+	return (numDigits);
+}

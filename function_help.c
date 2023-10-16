@@ -42,3 +42,18 @@ void _puts(char *str)
 	_putchar(*str);
 	_puts(str + 1);
 }
+
+/**
+ * printHex - a function that prints a single hexadecimal digit.
+ * @n: digit to be printed (0 - 15)
+ *
+ * Return: number of characters printed.
+ */
+
+int printHex(int n)
+{
+	if (n >= 0 && n <= 9)
+		return (_putchar('0' + n));
+	else
+		return (_putchar('a' + (n - 10)));
+}
