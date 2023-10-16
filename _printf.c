@@ -12,7 +12,7 @@
 
 int printFormatted(const char *format, fmat_t *specifier_array, va_list args)
 {
-	char a, percent = '%';
+	char a, ch, percent = '%';
 	int b, c, count = 0;
 
 	b = 0;
@@ -28,31 +28,27 @@ int printFormatted(const char *format, fmat_t *specifier_array, va_list args)
 			       a != *(specifier_array[c].class))
 				c++;
 			if (specifier_array[c].class != NULL)
-				count += specifier_array[c].f(args); /*
-								  * call the
-								  * appropriate
-								  * print
-								  * function
-								  */
+				/* call the appropriate print function */
+				count += specifier_array[c].f(args);
 			else
 			{
 				if (a == '\0')
 					return (-1);
 				if (a != '%')
 				{
-					char ch = a;
+				        ch = a;
 					/* print the character using write */
 					write(1, &ch, 1);
 					count++;
 				}
 				/* print a '%' */
-				write(1, &percent, 1);
+			        write(1, &percent, 1);
 				count++;
 			}
 		}
 		else
 		{
-			char ch = a;
+			ch = a;
 			/* print the character using write */
 			write(1, &ch, 1);
 			count++;

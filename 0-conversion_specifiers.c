@@ -1,30 +1,31 @@
 #include "main.h"
 
 /**
- * print_char - a function that prints a char.
+ * print_char - a function that handles the char format specifier.
  * @ch: list of char arguments to iterate.
  *
- * Return: number of chars to be printed.
+ * Return: updated count after handling the 'c' format specifier.
  */
 
 int print_char(va_list ch)
 {
-	return (_putchar(va_arg(ch, int)));
+	char c = va_arg(ch, int);
+
+	return (_putchar(c));
 }
 
 /**
- * print_str - a function that prints a string.
+ * print_str - a function that handles the string format specifier.
  * @str: list of string arguments to iterate.
  *
- * Return: string count.
+ * Return: updated string count.
  */
 
 int print_str(va_list str)
 {
 	int len;
-	char *s;
+	char *s = va_arg(str, char *);
 
-	s = va_arg(str, char *);
 	if (s == NULL)
 		s = "(null)";
 
@@ -36,10 +37,10 @@ int print_str(va_list str)
 }
 
 /**
- * print_int - function that prints an int.
+ * print_int - function that handles the 'd' and 'i' format specifiers.
  * @integer: list of int arguments to iterate.
  *
- * Return: int count.
+ * Return: updated int count.
  */
 
 int print_int(va_list integer)
@@ -59,7 +60,7 @@ int print_int(va_list integer)
 		y = y * 10;
 	while (y != 0)
 	{
-		len += _putchar(n / y + '0');
+	        len += _putchar(n / y + '0');
 		n %= y;
 		y /= 10;
 	}
@@ -75,33 +76,34 @@ int print_int(va_list integer)
 
 int convert_bin(va_list bin)
 {
-	int i, count = 0;
+	int i, numDigits = 0;
 	int *array;
 	unsigned int n = va_arg(bin, unsigned int);
 	unsigned int temp = n;
 
+	/* calculate the number of binary digits required */
 	while (temp / 2 != 0)
 	{
 		temp = temp / 2;
-		count++;
+		numDigits++;
 	}
-	count++;
+	numDigits++;
 
-	array = malloc(sizeof(int) * count);
+	array = malloc(sizeof(int) * numDigits);
 	if (array == NULL)
 	{
 		free(array);
 		return (0);
 	}
-	for (i = 0; i < count; i++)
+	for (i = 0; i < numDigits; i++)
 	{
 		array[i] = n % 2;
 		n = n / 2;
 	}
-	for (i = count - 1; i >= 0; i--)
-		_putchar(array[i] + '0');
+	for (i = numDigits - 1; i >= 0; i--)
+	        _putchar(array[i] + '0');
 	free(array);
-	return (count);
+	return (numDigits);
 }
 
 /**
@@ -115,17 +117,18 @@ int unsigned_int(va_list u_value)
 {
 	unsigned int n;
 	int x;
-	int len = 0;
+	int numDigits = 0;
 
 	n = va_arg(u_value, unsigned int);
 	x = 1;
+
 	while (n / x > 9)
 		x = x * 10;
 	while (x != 0)
 	{
-		len += _putchar(n / x + '0');
+	        numDigits += _putchar(n / x + '0');
 		n %= x;
 		x /= 10;
 	}
-	return (len);
+	return (numDigits);
 }
