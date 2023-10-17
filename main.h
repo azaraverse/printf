@@ -34,5 +34,6 @@ int printStr(va_list string);
 int printHex(int n);
 int printPtr(va_list ptr);
 int printRev(va_list str);
+int printRot13(va_list rot13);
 
 #endif /* MAIN_H */

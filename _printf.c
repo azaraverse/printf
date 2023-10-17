@@ -84,6 +84,7 @@ int _printf(const char *format, ...)
 		{"S", printStr},
 		{"p", printPtr},
 		{"r", printRev},
+		{"R", printRot13},
 		{NULL, NULL}
 	};
 
