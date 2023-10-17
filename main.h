@@ -33,5 +33,6 @@ int printHex_u(va_list hex_value);
 int printStr(va_list string);
 int printHex(int n);
 int printPtr(va_list ptr);
+int printRev(va_list str);
 
 #endif /* MAIN_H */

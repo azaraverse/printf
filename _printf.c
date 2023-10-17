@@ -83,6 +83,7 @@ int _printf(const char *format, ...)
 		{"X", printHex_u},
 		{"S", printStr},
 		{"p", printPtr},
+		{"r", printRev},
 		{NULL, NULL}
 	};
 
