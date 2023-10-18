@@ -9,8 +9,22 @@ printf.
 ## Function Usage:
 ```c
 #include "main.h"
-/* you can declare and assign variables here */
-_printf("This function can print %d strings of %s!\n", 20, "I am a human");
+
+/**
+* main - Program Entry Point
+*
+* Return: Always 0
+*/
+
+int main(void)
+{
+	int i = 20;
+	char *s = "I am a human";
+
+	_printf("This function can print %d strings of %s!\n", i, s);
+	return (0);
+}
+
 ```
 stdout: This function can print 20 strings of I am a human!
 
