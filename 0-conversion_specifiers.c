@@ -60,7 +60,7 @@ int print_int(va_list integer)
 		y = y * 10;
 	while (y != 0)
 	{
-	        len += _putchar(n / y + '0');
+		len += _putchar(n / y + '0');
 		n %= y;
 		y /= 10;
 	}
@@ -101,7 +101,7 @@ int convert_bin(va_list bin)
 		n = n / 2;
 	}
 	for (i = numDigits - 1; i >= 0; i--)
-	        _putchar(array[i] + '0');
+		_putchar(array[i] + '0');
 	free(array);
 	return (numDigits);
 }
@@ -126,7 +126,7 @@ int unsigned_int(va_list u_value)
 		x = x * 10;
 	while (x != 0)
 	{
-	        numDigits += _putchar(n / x + '0');
+		numDigits += _putchar(n / x + '0');
 		n %= x;
 		x /= 10;
 	}

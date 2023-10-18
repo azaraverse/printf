@@ -35,7 +35,7 @@ int u_octal(va_list ui)
 		temp /= 8;
 	}
 	for (i = numDigits - 1; i >= 0; i--)
-	        _putchar(array[i] + '0');
+		_putchar(array[i] + '0');
 	free(array);
 	return (numDigits);
 }
@@ -58,7 +58,7 @@ int printHex_l(va_list hex_value)
 
 	if (num == 0)
 	{
-	        _putchar('0');
+		_putchar('0');
 		return (-1);
 	}
 	while (temp > 0)
@@ -103,7 +103,7 @@ int printHex_u(va_list hex_value)
 
 	if (num == 0)
 	{
-	        _putchar('0');
+		_putchar('0');
 		return (-1);
 	}
 	while (temp > 0)
@@ -133,7 +133,7 @@ int printHex_u(va_list hex_value)
 
 /**
  * printStr - a function that handles the 'S' format specifier.
- * @s: list of string arguments to iterate.
+ * @string: list of string arguments to iterate.
  *
  * Return: number of chars to be printed.
  */
@@ -186,7 +186,7 @@ int printPtr(va_list ptr)
 
 	if (address == 0)
 	{
-	        _puts("(nil)");
+		_puts("(nil)");
 		_putchar('\0');
 		numDigits++;
 		return (numDigits);
