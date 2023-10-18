@@ -7,11 +7,11 @@ function can not perform the feature rich implementations of the standard C
 printf.
 
 ## Function Usage:
-'''c
+```c
 #include "main.h"
 /* you can declare and assign variables here */
 _printf("This function can print %d strings of %s!\n", 20, "I am a human");
-'''
+```
 stdout: This function can print 20 strings of I am a human!
 
 ## F&F
@@ -65,6 +65,6 @@ This function prints a string passed as an argument in reverse.
 This function prints a character in a str with the 13th alphabet from the
 character, to mimmick an encryption-Rot13'ed.
 
-'''c
+```c
 /* authored by Yushahu Yussif Azara */
-'''
+```
