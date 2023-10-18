@@ -39,7 +39,6 @@ int print_str(va_list str)
 /**
  * print_int - function that handles the 'd' and 'i' format specifiers.
  * @integer: list of int arguments to iterate.
- * @l_modif: length modifier to iterate and check.
  *
  * Return: updated int count.
  */
